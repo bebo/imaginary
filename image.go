@@ -7,31 +7,32 @@ import (
 )
 
 type ImageOptions struct {
-	Width       int
-	Height      int
-	AreaWidth   int
-	AreaHeight  int
-	Quality     int
-	Compression int
-	Rotate      int
-	Top         int
-	Left        int
-	Margin      int
-	Factor      int
-	DPI         int
-	TextWidth   int
-	Force       bool
-	NoCrop      bool
-	NoReplicate bool
-	NoRotation  bool
-	NoProfile   bool
-	Opacity     float32
-	Text        string
-	Font        string
-	Type        string
-	Color       []uint8
-	Gravity     bimg.Gravity
-	Colorspace  bimg.Interpretation
+	Width        int
+	Height       int
+	AreaWidth    int
+	AreaHeight   int
+	Quality      int
+	Compression  int
+	Rotate       int
+	Top          int
+	Left         int
+	Margin       int
+	Factor       int
+	DPI          int
+	TextWidth    int
+	Force        bool
+	NoCrop       bool
+	NoReplicate  bool
+	NoRotation   bool
+	NoProfile    bool
+	Opacity      float32
+	Text         string
+	Font         string
+	Type         string
+	Color        []uint8
+	Gravity      bimg.Gravity
+	Colorspace   bimg.Interpretation
+	GaussianBlur bimg.GaussianBlur
 }
 
 type Image struct {
@@ -57,6 +58,7 @@ func BimgOptions(o ImageOptions) bimg.Options {
 		Gravity:        o.Gravity,
 		Interpretation: o.Colorspace,
 		Type:           ImageType(o.Type),
+		GaussianBlur:   o.GaussianBlur,
 	}
 }
 

@@ -34,6 +34,8 @@ var allowedParams = map[string]string{
 	"color":       "color",
 	"colorspace":  "colorspace",
 	"gravity":     "gravity",
+	"blursigma":   "float",
+	"blurminampl": "float",
 }
 
 func readParams(query url.Values) ImageOptions {
@@ -95,6 +97,8 @@ func mapImageParams(params map[string]interface{}) ImageOptions {
 		Opacity:     float32(params["opacity"].(float64)),
 		Gravity:     params["gravity"].(bimg.Gravity),
 		Colorspace:  params["colorspace"].(bimg.Interpretation),
+		GaussianBlur: bimg.GaussianBlur{Sigma: params["blursigma"].(float64),
+			MinAmpl: params["blurminampl"].(float64)},
 	}
 }
 
