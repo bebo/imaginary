@@ -2,7 +2,7 @@ package main
 
 import "gopkg.in/h2non/bimg.v0"
 
-const Version = "0.1.18"
+const Version = "bebo-0.0.2"
 
 type Versions struct {
 	ImaginaryVersion string `json:"imaginary"`
